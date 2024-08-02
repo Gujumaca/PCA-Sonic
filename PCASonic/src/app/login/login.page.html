@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center ion-text-capitalize">iniciar sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <figure class="ion-text-center">
+    <img src="assets/images/Profile.jpg"/>
+  </figure>
+  <form [formGroup]="loginForm" (ngSubmit)="(loginUser(loginForm.value))">
+    <ion-item>
+      <ion-input label="Email" labelPlacement="floating" placeholder="Ingresa tu email" formControlName="email"></ion-input>
+    </ion-item>
+    
+    <div>
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div *ngIf="(loginForm.get('email')?.hasError(validation.type) && 
+        loginForm.get('email')?.dirty)">  
+        {{validation.message}}  
+      </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-input label="Contraseña" Type="password" labelPlacement="floating" placeholder="Ingresa tu contraseña" formControlName="password"></ion-input>
+    </ion-item>
+  
+    <div>
+    <ng-container *ngFor="let validation of validation_messages.password">
+      <div *ngIf="(loginForm.get('password')?.hasError(validation.type) && 
+      loginForm.get('password')?.dirty)">  
+      {{validation.message}}  
+    </div>
+    </ng-container>
+  </div>
+  
+  <ion-button
+      type="submit"
+      [disabled]="!loginForm.valid"
+      shape="round">      
+      Inicar sesión <ion-icon name="log-in-outline"></ion-icon> 
+    </ion-button>
+    
+    <ion-button
+      shape="round"
+      fill="outline"
+      (click)="goToRegister()">      
+      Registrarme <ion-icon name="person-add-outline"></ion-icon> 
+    </ion-button>
+  </form>
+</ion-content>

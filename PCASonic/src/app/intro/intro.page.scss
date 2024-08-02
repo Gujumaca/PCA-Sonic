@@ -1,0 +1,31 @@
+swiper-container {
+    width: 80%;
+    height: 80%;
+  }
+  
+  swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cool-title {
+    color: rgb(252, 253, 253);
+  }
+  
+  .custom-bg-color{
+    --background: rgb(255, 255, 255);
+  }
+  
+  .sp-bg-color{
+    background-color: rgb(6, 183, 237);
+  }
+  
+  //ion-avatar{
+    //--border-radius: 4px;
+  //}
+  
+  .style-avatar{
+    --border-radius: 4px;
+  }
